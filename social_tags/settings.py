@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import locale
 from django.conf import settings
 
 
@@ -6,7 +7,7 @@ DEFAULT_DEFAULT_TITLE = None
 DEFAULT_DEFAULT_IMAGE = None
 DEFAULT_DEFAULT_TYPE = None
 DEFAULT_DEFAULT_LOCALE = settings.LANGUAGE_CODE
-DEFAULT_DEFAULT_LOCALES = [l[0] for l in settings.LANGUAGES]
+DEFAULT_DEFAULT_LOCALES = [locale.normalize(l[0].replace('-', '_')).split('.')[0] for l in settings.LANGUAGES]
 
 
 DEFAULT_TITLE = getattr(settings, 'SOCIAL_TAGS_DEFAULT_TITLE', DEFAULT_DEFAULT_TITLE)

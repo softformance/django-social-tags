@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import locale
 from django import template
 from django.contrib.sites.models import get_current_site
 
@@ -54,7 +55,7 @@ class RenderMetaTags(InclusionTag):
     def get_request_data(self, request):
         data = {
             'url': request.build_absolute_uri(),
-            'locale': request.LANGUAGE_CODE,
+            'locale': locale.normalize(request.LANGUAGE_CODE.replace('-', '_')).split('.')[0],
             'title': settings.DEFAULT_TITLE or get_current_site(request).name,
         }
         return data
