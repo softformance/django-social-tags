@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 import locale
 from django import template
-from django.contrib.sites.models import get_current_site
+try:
+    from django.contrib.sites.models import get_current_site
+except ImportError:
+    from django.contrib.sites.shortcuts import get_current_site
 
 from sekizai.templatetags.sekizai_tags import AddData
 from classytags.core import Options

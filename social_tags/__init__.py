@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
-__author__ = 'Pascal Mouret'
-__version__ = '0.4.1'
+__author__ = 'Dmytro Litvinov'
+__version__ = '0.4.2'
