@@ -25,7 +25,7 @@ class MetaObject(object):
     @property
     def objects(self):
         objects = []
-        for type, object in networks.AVAILABLE.iteritems():
+        for type, object in networks.AVAILABLE.items():
             objects.append(getattr(networks, object)(**self.kwargs))
         return objects
 
